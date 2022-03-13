@@ -1,0 +1,1 @@
+export const masspectrum = React.lazy(() => import(/* webpackChunkName: "masspectrum" */ './fragments/masspectrum.react'));

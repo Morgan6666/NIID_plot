@@ -1,0 +1,27 @@
+.masspectrum_js_metadata <- function() {
+deps_metadata <- list(`masspectrum` = structure(list(name = "masspectrum",
+version = "0.0.1", src = list(href = NULL,
+file = "deps"), meta = NULL,
+script = 'async-masspectrum.js',
+stylesheet = NULL, head = NULL, attachment = NULL, package = "masspectrum",
+all_files = FALSE, async = TRUE), class = "html_dependency"),
+`masspectrum` = structure(list(name = "masspectrum",
+version = "0.0.1", src = list(href = NULL,
+file = "deps"), meta = NULL,
+script = 'async-masspectrum.js.map',
+stylesheet = NULL, head = NULL, attachment = NULL, package = "masspectrum",
+all_files = FALSE, dynamic = TRUE), class = "html_dependency"),
+`masspectrum` = structure(list(name = "masspectrum",
+version = "0.0.1", src = list(href = NULL,
+file = "deps"), meta = NULL,
+script = 'masspectrum.min.js',
+stylesheet = NULL, head = NULL, attachment = NULL, package = "masspectrum",
+all_files = FALSE), class = "html_dependency"),
+`masspectrum` = structure(list(name = "masspectrum",
+version = "0.0.1", src = list(href = NULL,
+file = "deps"), meta = NULL,
+script = 'masspectrum.min.js.map',
+stylesheet = NULL, head = NULL, attachment = NULL, package = "masspectrum",
+all_files = FALSE, dynamic = TRUE), class = "html_dependency"))
+return(deps_metadata)
+}

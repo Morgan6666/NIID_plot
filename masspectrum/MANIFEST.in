@@ -1,0 +1,11 @@
+include masspectrum/masspectrum.min.js
+include masspectrum/masspectrum.min.js.map
+include masspectrum/async-*.js
+include masspectrum/async-*.js.map
+include masspectrum/*-shared.js
+include masspectrum/*-shared.js.map
+include masspectrum/metadata.json
+include masspectrum/package-info.json
+include README.md
+include LICENSE
+include package.json
