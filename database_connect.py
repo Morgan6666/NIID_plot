@@ -127,4 +127,5 @@ class Connection:
 connect = Connection(engine, 'tests.txt', 'standards.txt', 'results.txt', 'specifications.txt')
 df_merge = connect.create_merge()
 df_specification = connect.create_df_specification()
+print(df_merge['instrument'].unique())
 

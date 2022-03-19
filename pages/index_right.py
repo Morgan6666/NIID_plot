@@ -1,10 +1,101 @@
+"""
+    Import variable
+"""
+from dash import dcc, dash
+from dash import html
+from style import external_stylesheets
+from style import SIDEBAR_STYLE
+from style import CONTENT_STYLE
+import pandas as pd
+from database_connect import df_merge
+from style import *
+from dash import html
 import plotly.graph_objects as go
-from index_left import app
-from dash.dependencies import Input, Output, State
+from dash import dash, dcc
+from dash.dependencies import Input, Output
 from plot import Selector
 from database_connect import df_merge, df_specification
 import plotly.express as px
-from tabulate import tabulate
+from app import app
+
+"""
+    Create HTML component
+"""
+
+
+
+sliderbar = html.Div(
+    [
+        html.H2('Instrument'),
+        html.Hr(),
+        html.P(
+            'Select device', className='lead',
+
+        ),
+        dcc.Link('Left:\nDY260722110', href='/left'),
+        html.Br(),
+        dcc.Link('Right:\nDY260662110', href='/right')
+    ],
+    style=SIDEBAR_STYLE,
+)
+
+content = html.Div(id='page-content', style=CONTENT_STYLE)
+
+layout = html.Div(children=[
+    html.H1('Instrument:\nDY260662110', style={'marginLeft': '36rem',
+                                               }),
+    html.Div([
+        dcc.Location(id='url'),
+        sliderbar,
+        content,
+
+    ]),
+
+    html.Div([
+        dcc.Dropdown(
+            ['High Mass', 'Low Mass'],
+            id='mass-mode',
+            placeholder='Mass mode'
+        ),
+        dcc.Dropdown(
+            ['Positive', 'Negative'],
+            id='polarity-dropdown',
+            placeholder='Polarity'
+        ),
+        dcc.Dropdown(
+            df_merge.scan_type.unique(),
+            id='scan_type-dropdown',
+            placeholder='Scan type'
+        ),
+        dcc.Dropdown(
+            df_merge.scan_rate.unique(),
+            id='scan_rate-dropdown',
+            placeholder='Scan rate'
+        ),
+
+    ], style=RIGHT_COMPONENT_STYLE),
+
+    html.Div([
+        dcc.Graph(id='graph',
+                  )
+    ], style=GRAPH_STYLE),
+
+    html.Div([
+        dcc.Graph(id='graph_1_1')
+    ], style=GRAPH_1_1_STYLE),
+
+    html.Div([
+        dcc.Graph(id='graph_2')
+
+    ], style=GRAPH_2_STYLE),
+
+    html.Div([
+        dcc.Graph(id='graph_3')
+    ], style=GRAPH_3_STYLE)
+
+], className = 'row')
+
+
 @app.callback(
     Output('graph', 'figure'),
     Input('mass-mode', 'value'),
@@ -92,21 +183,4 @@ def update_fig_3(mass_mode, polarity, scan_type, scan_rate):
     fig.update_xaxes(showspikes=True)
     fig.update_yaxes(showspikes=True)
     return fig
-
-
-
-# if __name__ == '__main__':
-#       app.run_server()
-
-import numpy as np
-# sel = Selector(df_merge, 'Low Mass', 'Negative', 'Q1 MS', 10,'DY260662110' )
-# df = sel.create_df()
-#print(tabulate(df_merge.head(),headers='keys' ))
-df = df_merge[(df_merge['instrument'] == 'DY260662110')
-                      & (df_merge['scan_type'] == 'Q1 MS')
-                      & (df_merge['mass_mode'] == 'High Mass')
-                      & (df_merge['polarity'] == 'Positive')
-                      & (df_merge['scan_rate'] == 10)].sort_values(by=['time']).sort_values(
-             by=['time']).round({'target_mass': 0})
-#print(df)
 
