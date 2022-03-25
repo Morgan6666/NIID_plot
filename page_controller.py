@@ -1,1 +1,0 @@
-from pages.index_right import

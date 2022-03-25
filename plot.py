@@ -31,7 +31,7 @@ pio.templates.default = 'plotly_white'
 
 # print(tabulate(df_specification, headers='keys'))
 class Selector:
-    def __init__(self, df, mass_mode: str, polarity: str, scan_type: str, scan_rate: int, instrument: str):
+    def __init__(self, df, mass_mode: str, polarity: str, scan_type: str, scan_rate: int,  instrument: str):
         self.df = df
         self.mass_mode = mass_mode
         self.polarity = polarity
@@ -51,6 +51,9 @@ class Selector:
             by=['time']).round({'target_mass': 0})
 
         df['target_mass'] = df['target_mass'].replace('', np.nan).astype('Int64')
+        
+        #df_spec = self.add_specification(df)
+
         return df
     """
         Crete Dataframe for df_spec
@@ -62,6 +65,7 @@ class Selector:
                      & (self.df['scan_type'] == self.scan_type)
                      & (self.df['scan_rate'] == self.scan_rate)]
         return df
+
     """
         Select value for Q1 high positive
     """
@@ -354,82 +358,54 @@ class Selector:
     def add_treshold_2(self, fig):
 
         if self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS':
-            fig.add_hline(y=H_M_P_Q1_5, line_dash="dash", line_color="green")
-            fig.add_hline(y=H_M_P_Q1_50, line_dash="dash", line_color="blue")
-            fig.add_hline(y=H_M_P_Q1_500, line_dash="dash", line_color="grey")
-            fig.add_hline(y=H_M_P_Q1_700, line_dash="dash", line_color="black")
-            fig.add_hline(y=H_M_P_Q1_800, line_dash="dash", line_color="yellow")
+            fig.add_hline(y=H_M_P_Q1_500, line_dash="dash", line_color="green")
+            fig.add_hline(y=H_M_P_Q1_616, line_dash="dash", line_color="blue")
+            fig.add_hline(y=H_M_P_Q1_906, line_dash="dash", line_color="grey")
+            fig.add_hline(y=H_M_P_Q1_1952, line_dash="dash", line_color="black")
+
 
             return fig
 
         elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS':
-            fig.add_hline(y=H_M_N_Q1_1, line_dash="dash", line_color="green")
-            fig.add_hline(y=H_M_N_Q1_4, line_dash="dash", line_color="blue")
-            fig.add_hline(y=H_M_N_Q1_10, line_dash="dash", line_color="grey")
-            fig.add_hline(y=H_M_N_Q1_50, line_dash="dash", line_color="black")
-            fig.add_hline(y=H_M_N_Q1_700, line_dash="dash", line_color="yellow")
+            fig.add_hline(y=H_M_N_Q1_933, line_dash="dash", line_color="green")
+            fig.add_hline(y=H_M_N_Q1_1863, line_dash="dash", line_color="blue")
             return fig
 
         elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS':
-            fig.add_hline(y=L_M_P_Q1_2, line_dash="dash", line_color="green")
-            fig.add_hline(y=L_M_P_Q1_10, line_dash="dash", line_color="blue")
-            fig.add_hline(y=L_M_P_Q1_20, line_dash="dash", line_color="grey")
-            fig.add_hline(y=L_M_P_Q1_70, line_dash="dash", line_color="black")
-            fig.add_hline(y=L_M_P_Q1_500, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=L_M_P_Q1_700, line_dash="dash", line_color="orange")
+            fig.add_hline(y=L_M_P_Q1_175, line_dash="dash", line_color="green")
+            fig.add_hline(y=L_M_P_Q1_500, line_dash="dash", line_color="blue")
+            fig.add_hline(y=L_M_P_Q1_616, line_dash="dash", line_color="grey")
+            fig.add_hline(y=L_M_P_Q1_906, line_dash="dash", line_color="black")
+
             return fig
 
 
         elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS':
-            fig.add_hline(y=L_M_N_Q1_1, line_dash="dash", line_color="green")
-            fig.add_hline(y=L_M_N_Q1_6, line_dash="dash", line_color="blue")
-            fig.add_hline(y=L_M_N_Q1_50, line_dash="dash", line_color="grey")
-            fig.add_hline(y=L_M_N_Q1_80, line_dash="dash", line_color="black")
-            fig.add_hline(y=L_M_N_Q1_100, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=L_M_N_Q1_300, line_dash="dash", line_color="orange")
-            fig.add_hline(y=L_M_N_Q1_600, line_dash="dash", line_color="pink")
+            fig.add_hline(y=L_M_N_Q1_933, line_dash="dash", line_color="green")
             return fig
 
         elif self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS':
-            fig.add_hline(y=H_M_P_Q3_1, line_dash="dash", line_color="green")
-            fig.add_hline(y=H_M_P_Q3_9, line_dash="dash", line_color="blue")
-            fig.add_hline(y=H_M_P_Q3_10, line_dash="dash", line_color="grey")
-            fig.add_hline(y=H_M_P_Q3_300, line_dash="dash", line_color="black")
-            fig.add_hline(y=H_M_P_Q3_700, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=H_M_P_Q3_900, line_dash="dash", line_color="orange")
+            fig.add_hline(y=H_M_P_Q3_500, line_dash="dash", line_color="green")
+            fig.add_hline(y=H_M_P_Q3_616, line_dash="dash", line_color="blue")
+            fig.add_hline(y=H_M_P_Q3_906, line_dash="dash", line_color="grey")
+            fig.add_hline(y=H_M_P_Q3_1952, line_dash="dash", line_color="black")
             return fig
 
         elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS':
-            fig.add_hline(y=H_M_N_Q3_3, line_dash="dash", line_color="green")
-            fig.add_hline(y=H_M_N_Q3_7, line_dash="dash", line_color="blue")
-            fig.add_hline(y=H_M_N_Q3_9, line_dash="dash", line_color="grey")
-            fig.add_hline(y=H_M_N_Q3_20, line_dash="dash", line_color="black")
-            fig.add_hline(y=H_M_N_Q3_30, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=H_M_N_Q3_40, line_dash="dash", line_color="orange")
-            fig.add_hline(y=H_M_N_Q3_400, line_dash="dash", line_color="#20B2AA")
-            fig.add_hline(y=H_M_N_Q3_600, line_dash="dash", line_color="#FFEFD5")
+            fig.add_hline(y=H_M_N_Q3_933, line_dash="dash", line_color="green")
+            fig.add_hline(y=H_M_N_Q3_1863, line_dash="dash", line_color="blue")
             return fig
 
         elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS':
-            fig.add_hline(y=L_M_P_Q3_3, line_dash="dash", line_color="green")
-            fig.add_hline(y=L_M_P_Q3_7, line_dash="dash", line_color="blue")
-            fig.add_hline(y=L_M_P_Q3_9, line_dash="dash", line_color="grey")
-            fig.add_hline(y=L_M_P_Q3_20, line_dash="dash", line_color="black")
-            fig.add_hline(y=L_M_P_Q3_30, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=L_M_P_Q3_40, line_dash="dash", line_color="orange")
-            fig.add_hline(y=L_M_P_Q3_400, line_dash="dash", line_color="#20B2AA")
-            fig.add_hline(y=L_M_P_Q3_600, line_dash="dash", line_color="#FFEFD5")
+            fig.add_hline(y=L_M_P_Q3_175, line_dash="dash", line_color="green")
+            fig.add_hline(y=L_M_P_Q3_500, line_dash="dash", line_color="blue")
+            fig.add_hline(y=L_M_P_Q3_616, line_dash="dash", line_color="grey")
+            fig.add_hline(y=L_M_P_Q3_906, line_dash="dash", line_color="black")
             return fig
 
 
         elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS':
-            fig.add_hline(y=L_M_N_Q3_7, line_dash="dash", line_color="blue")
-            fig.add_hline(y=L_M_N_Q3_9, line_dash="dash", line_color="grey")
-            fig.add_hline(y=L_M_N_Q3_20, line_dash="dash", line_color="black")
-            fig.add_hline(y=L_M_N_Q3_30, line_dash="dash", line_color="yellow")
-            fig.add_hline(y=L_M_N_Q3_40, line_dash="dash", line_color="orange")
-            fig.add_hline(y=L_M_N_Q3_400, line_dash="dash", line_color="#20B2AA")
-            fig.add_hline(y=L_M_N_Q3_600, line_dash="dash", line_color="#FFEFD5")
+            fig.add_hline(y=L_M_N_Q3_933, line_dash="dash", line_color="blue")
             return fig
 
 
@@ -438,38 +414,130 @@ class Selector:
         """
 
     def add_treshold(self):
-        if self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS':
+        if self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
             df = self.add_tresh_h_q1()
             return df
 
-        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS':
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
             df = self.add_tresh_h_q1()
             return df
 
-        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS':
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
             df = self.add_tresh_l_q1()
             return df
 
-        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS':
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
             df = self.add_tresh_l_q1()
             return df
 
-        elif self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS':
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
             df = self.add_tresh_h_q3()
             return df
 
-        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS':
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
             df = self.add_tresh_h_q3()
             return df
 
-        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS':
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
             df = self.add_tresh_l_q3()
             return df
 
-        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS':
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
             df = self.add_tresh_l_q3()
             return df
 
         else:
             print('Вы не указали таргетную массу')
+
+
+
+
+class Private(Selector):
+    def add_private(self):
+
+        df = self.create_df()
+        if self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
+            df_500_380 = df[df['target_mass'] == 500.380]
+            df_500_380['intensity'] = df_500_380['intensity'] / 3.2e7
+            df_616_464 = df[df['target_mass'] == 616.464]
+            df_616_464['intensity'] = df_616_464['intensity'] / 2.e7
+            df_906_673 = df[df['target_mass'] == 906.673] / 9.6e7
+            df_906_673['intensity'] = df_906_673['intensity'] / 9.6e7
+            df_1952_427 = df[df['target_mass'] == 1952.427]
+            df_1952_427['intensity'] = df_1952_427['intensity'] / 2.4e6
+            frame = [df_500_380, df_616_464, df_906_673, df_1952_427]
+            df_all  = pd.concat(frame).sort_values(by = 'time')
+            return df_all
+
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
+            df_500_380 = df[df['target_mass'] == 500.380]
+            df_500_380['intensity'] = df_500_380['intensity'] / 3.2e7
+            df_616_464 = df[df['target_mass'] == 616.464]
+            df_616_464['intensity'] = df_616_464['intensity'] / 2.e7
+            df_906_673 = df[df['target_mass'] == 906.673] / 9.6e7
+            df_906_673['intensity'] = df_906_673['intensity'] / 9.6e7
+            df_1952_427 = df[df['target_mass'] == 1952.427]
+            df_1952_427['intensity'] = df_1952_427['intensity'] / 2.4e6
+            frame = [df_500_380, df_616_464, df_906_673, df_1952_427]
+            df_all = pd.concat(frame).sort_values(by='time')
+            return df_all
+
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
+            df_933_636 = df[df['target_mass'] == 933.636]
+            df_933_636['intensity'] = df_933_636['intensity'] / 1.8e7
+            df_1863_306 = df[df['target_mass'] == 1863.306]
+            df_1863_306['intensity'] = df_1863_306['intensity'] / 1e6
+            frame = [df_1863_306, df_933_636]
+            df_all = pd.concat(frame).sort_values(by = 'time')
+            return df_all
+
+        elif self.mass_mode == 'High Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
+            df_933_636 = df[df['target_mass'] == 933.636]
+            df_933_636['intensity'] = df_933_636['intensity'] / 1.8e7
+            df_1863_306 = df[df['target_mass'] == 1863.306]
+            df_1863_306['intensity'] = df_1863_306['intensity'] / 1e6
+            frame = [df_1863_306, df_933_636]
+            df_all = pd.concat(frame).sort_values(by='time')
+            return df_all
+
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
+            df_175_133 = df[df['target_mass'] == 175.133]
+            df_175_133['intensity'] = df_175_133['intensity'] / 8.0e6
+            df_500_380 = df[df['target_mass'] == 500.380]
+            df_500_380['intensity'] = df_500_380['intensity'] / 3.68e7
+            df_616_464 = df[df['target_mass'] == 616.464]
+            df_616_464['intensity'] = df_616_464['intensity'] / 2.4e7
+            df_906_673 = df[df['target_mass'] == 906.673]
+            df_906_673['intensity'] = df_906_673['intensity'] / 1.0e8
+            df_all = pd.concat(df_175_133, df_500_380, df_616_464, df_906_673).sort_values(by = 'time')
+            return df_all
+
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Positive' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
+            df_175_133 = df[df['target_mass'] == 175.133]
+            df_175_133['intensity'] = df_175_133['intensity'] / 8.0e6
+            df_500_380 = df[df['target_mass'] == 500.380]
+            df_500_380['intensity'] = df_500_380['intensity'] / 3.68e7
+            df_616_464 = df[df['target_mass'] == 616.464]
+            df_616_464['intensity'] = df_616_464['intensity'] / 2.4e7
+            df_906_673 = df[df['target_mass'] == 906.673]
+            df_906_673['intensity'] = df_906_673['intensity'] / 1.0e8
+            df_all = pd.concat(df_175_133, df_500_380, df_616_464, df_906_673).sort_values(by='time')
+            return df_all
+
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q1 MS' and self.scan_rate == 10:
+            df_933_636 = df[df['target_mass'] == 933.636]
+            df_933_636['intensity'] = df_933_636['intensity'] / 1.8e7
+            return df_933_636
+
+        elif self.mass_mode == 'Low Mass' and self.polarity == 'Negative' and self.scan_type == 'Q3 MS' and self.scan_rate == 10:
+            df_933_636 = df[df['target_mass'] == 933.636]
+            df_933_636['intensity'] = df_933_636['intensity'] / 1.8e7
+            return df_933_636
+
+
+
+
+
+
+
 

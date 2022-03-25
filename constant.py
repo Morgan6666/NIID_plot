@@ -20,87 +20,62 @@ SCAN_20000 = 20000
 """
     High Mass Positive Q1
 """
-H_M_P_Q1_5 = 5e6
-H_M_P_Q1_50 = 50e6
-H_M_P_Q1_500 = 500e6
-H_M_P_Q1_700 = 700e6
-H_M_P_Q1_800 = 800e6
+H_M_P_Q1_500 = 3.2e7
+H_M_P_Q1_616 = 2.0e7
+H_M_P_Q1_906 = 9.6e7
+H_M_P_Q1_1952 = 2.4e6
+
 
 """
     High Mass Negative Q1
 """
-H_M_N_Q1_1 = 1e6
-H_M_N_Q1_4 = 4e6
-H_M_N_Q1_10 = 10e6
-H_M_N_Q1_50 = 50e6
-H_M_N_Q1_700 = 700e6
+H_M_N_Q1_933 = 1.8e7
+H_M_N_Q1_1863 = 1.0e6
 
 """
     Low Mass Positive Q1
 """
-L_M_P_Q1_2 = 2e6
-L_M_P_Q1_10 = 10e6
-L_M_P_Q1_20 = 20e6
-L_M_P_Q1_70 = 70e6
-L_M_P_Q1_500 = 500e6
-L_M_P_Q1_700 = 700e6
-
+L_M_P_Q1_175 = 8.0e6
+L_M_P_Q1_500 = 3.68e6
+L_M_P_Q1_616 = 2.4e6
+L_M_P_Q1_906 = 1.0e8
 """
     Low Mass Negative Q1
 """
 
-L_M_N_Q1_1 = 1e6
-L_M_N_Q1_6 = 6e6
-L_M_N_Q1_50 = 50e6
-L_M_N_Q1_80 = 80e6
-L_M_N_Q1_100 = 100e6
-L_M_N_Q1_300 = 300e6
-L_M_N_Q1_600 = 600e6
+L_M_N_Q1_933 = 1.8e7
+
 
 """
     High Mass Positive Q3
 """
 
-H_M_P_Q3_1 = 1e6
-H_M_P_Q3_9 = 9e6
-H_M_P_Q3_10 = 10e6
-H_M_P_Q3_300 = 300e6
-H_M_P_Q3_700 = 700e6
-H_M_P_Q3_900 = 900e6
+H_M_P_Q3_500 = 3.2e7
+H_M_P_Q3_616 = 2.0e7
+H_M_P_Q3_906 = 9.6e7
+H_M_P_Q3_1952 = 2.4e6
+
 
 """
     High Mass Negative Q3
 """
 
-H_M_N_Q3_3 = 3e6
-H_M_N_Q3_7 = 7e6
-H_M_N_Q3_9 = 9e6
-H_M_N_Q3_20 = 20e6
-H_M_N_Q3_30 = 30e6
-H_M_N_Q3_40 = 40e6
-H_M_N_Q3_400 = 400e6
-H_M_N_Q3_600 = 600e6
+H_M_N_Q3_933 = 1.8e6
+H_M_N_Q3_1863 = 1.0e6
+
 
 """
     Low Mass Positive Q3
 """
-L_M_P_Q3_3 = 3e6
-L_M_P_Q3_7 = 7e6
-L_M_P_Q3_9 = 9e6
-L_M_P_Q3_20 = 20e6
-L_M_P_Q3_30 = 30e6
-L_M_P_Q3_40 = 40e6
-L_M_P_Q3_400 = 400e6
-L_M_P_Q3_600 = 600e6
+L_M_P_Q3_175 = 8.0e6
+L_M_P_Q3_500 = 3.68e7
+L_M_P_Q3_616 = 2.4e7
+L_M_P_Q3_906 = 1.0e8
+
 
 """
     Low Mass Negative Q3
 """
 
-L_M_N_Q3_7 = 7e6
-L_M_N_Q3_9 = 9e6
-L_M_N_Q3_20 = 20e6
-L_M_N_Q3_30 = 30e6
-L_M_N_Q3_40 = 40e6
-L_M_N_Q3_400 = 400e6
-L_M_N_Q3_600 = 600e6
+L_M_N_Q3_933 = 1.8e6
+
